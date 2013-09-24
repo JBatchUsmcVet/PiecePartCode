@@ -1,5 +1,5 @@
-import java.util.*;
-public class ExprParser {
+//import java.util.Scanner;
+public class ExpParser {
 
 
 	public static void main(String[] args) {
@@ -8,39 +8,56 @@ public class ExprParser {
 
 System.out.println("Welcome to the Expression program");
 System.out.println("\nEnter a line of expressions:");
-String exPress = "( 7 ) junk ( 1 + 2) (3 +  4) ( 23 + 16)";
+      
+String exPress = "( 3  +4  +  -1) ( 1 + 2) (3 +  4) ( 23 + 16)";
+      
 String[] spliter = new String [exPress.length()];
 
-	//* returns a string[] with each paranthetical expression as a seperate element
+	//* returns a string[] with each parenthetical expression as a separate element
 spliter = exPress.split("\\s(?=\\()|(?<=\\))\\s");
-
-
-for(int i=0;i<=spliter.length;i++)
-System.out.println(spliter[i]);
-
-
-
-
-	}
-	public static void calculate(String [] expressions)
+    // this for loop sends each element in the spliter array through the isLegal method first then send it through
+    // the calculate method to return the value.
+	for(int i=0; i<spliter.length;i++)
 	{
-		
-	}
-	
-	
-	
-	public static boolean isLegal(String [] splitExpress)
-	{
-		for(int i = 0; i<splitExpress.length;i++)
+		if(isLegal.spliter[i]== true)// so far the only call for the method isLegal that i can see us needing
 		{
-			if(splitExpress[i].indexOf("(")== -1 || splitExpress[i].indexOf(")") == -1 )
-			{
-				return false;
-			}
-			else if()
+			calculate(spliter[i]);
 		}
 		
+		else // if isLegal returns false print contents of spliter[i] + error message
+		{
+			System.out.println(spliter[i] + " is not valid");
+		}
+			
 	}
-}
 
+
+  }
+    //finds integers and calculates sum for one element of expressions[]
+	public static void calculate(String expressions)  //(  3  +4  +  -1)
+	{
+		String [] sumValues = new String [expressions.length()];
+		int [] parsedValues = new int [expressions.length()];
+		int sums=0;
+		
+		
+      String trimedExpress = expressions.replaceAll(" ",""); //(3+4+-1)
+      //System.out.println(trimedExpress);
+      
+      trimedExpress = trimedExpress.substring(1,trimedExpress.length()-1);//3+4+-1
+      //System.out.println(trimedExpress);
+      sumValues = trimedExpress.split("\\+");                  //[3][4][-1]
+		for(int i =0; i<sumValues.length;i++)
+          {
+			parsedValues[i]= Integer.parseInt(sumValues[i]);
+          sums += parsedValues[i];
+          }
+            
+		
+		System.out.println("\rThe value of" + expressions + " is " + sums);       
+     }
+            
+
+          
+}	
 
