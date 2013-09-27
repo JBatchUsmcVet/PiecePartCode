@@ -1,0 +1,68 @@
+
+	import java.util.*;
+	public class LoanEstimateDriver {
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Welcome to the Loan Estimation program!\n");
+	double principal, intRate;
+	int years;
+	LoanEstimate loan1 = new LoanEstimate();
+	LoanEstimate loan2 = new LoanEstimate();
+	// 
+	
+	do {
+		System.out.print("Enter amount to borrow: ");
+		principal = sc.nextDouble();
+		if (principal <= 0.0)
+			System.out.println("ERROR: amount must be positive!");
+		} while (principal <= 0.0);
+		loan1.setPrincipal(principal);
+		loan2.setPrincipal(principal);
+	
+		//LOAN 1
+	do {
+		System.out.print("Enter years for loan 1: ");
+		years = sc.nextInt();
+		if (years <= 0)
+		System.out.println("ERROR: years must be positive!");
+		} while (years <= 0);
+		loan1.setYears(years);
+
+		do {
+			System.out.print("Enter percentage rate for loan 1: ");
+			intRate = sc.nextDouble();
+			if (years <= 0)
+			System.out.println("ERROR: years must be positive!");
+			} while (intRate <= 0);
+			loan1.setAnnualPercentRate(intRate);
+			
+			//LOAN 2
+	do {
+		System.out.print("Enter years for loan 2: ");
+		years = sc.nextInt();
+		if (years <= 0)
+		System.out.println("ERROR: years must be positive!");
+		} while (years <= 0);
+		loan2.setYears(years);
+
+		do {
+			System.out.print("Enter percentage rate for loan 2: ");
+			intRate = sc.nextDouble();
+			if (years <= 0)
+			System.out.println("ERROR: percentage rate must be positive!");
+			} while (intRate <= 0);
+			loan2.setAnnualPercentRate(intRate);
+
+			System.out.println(loan1.getMonthlyRent());
+			System.out.println(loan1.getMonthlyRent());
+	System.out.println("/nGoodbye!");
+	}
+	public void calcCompare(LoanEstimate loan1, LoanEstimate loan2)
+	{
+		
+	}
+	public void  Calculate(LoanEstimate loan1)
+	{
+		
+	}
+}
