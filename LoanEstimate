@@ -1,0 +1,35 @@
+
+public class LoanEstimate {
+
+	private double principal;
+	private int years;
+	private double annualPercentRate;
+	
+	// Setters and Getters
+	public double getPrincipal() {
+		return principal;
+	}
+	public void setPrincipal(double principal) {
+		this.principal = principal;
+	}
+	public int getYears() {
+		return years;
+	}
+	public void setYears(int years) {
+		this.years = years;
+	}
+	public double getAnnualPercentRate() {
+		return annualPercentRate;
+	}
+	public void setAnnualPercentRate(double annualPercentRate) {
+		this.annualPercentRate = annualPercentRate;
+	}
+	
+	public double getMonthlyRent()
+	{
+		double numYears = years;
+		return (annualPercentRate*(((principal*(Math.pow(1+annualPercentRate,numYears)))))  
+				/ (Math.pow(1+annualPercentRate,numYears))-1);
+	}
+	
+	// x= i[(P(1+i)^n)/(1+i)^n -1)]
